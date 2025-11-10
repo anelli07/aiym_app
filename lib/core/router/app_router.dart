@@ -7,6 +7,7 @@ import '../../features/home/presentation/screens/home_screen.dart';
 import '../../features/translation/presentation/screens/translation_screen.dart';
 import '../../features/dictionary/presentation/screens/dictionary_screen.dart';
 import '../../features/learn/presentation/screens/learn_screen.dart';
+import '../../features/quizzes/presentation/screens/quizzes_screen.dart';
 
 class AppRouter {
   static const String welcome = '/welcome';
@@ -16,6 +17,7 @@ class AppRouter {
   static const String translation = '/translation';
   static const String dictionary = '/dictionary';
   static const String learn = '/learn';
+  static const String quizzes = '/quizzes';
 
   static final GoRouter router = GoRouter(
     initialLocation: welcome,
@@ -57,13 +59,15 @@ class AppRouter {
             name: 'learn',
             builder: (context, state) => const LearnScreen(),
           ),
+          GoRoute(
+            path: 'quizzes',
+            name: 'quizzes',
+            builder: (context, state) => const QuizzesScreen(),
+          ),
         ],
       ),
     ],
-    errorBuilder: (context, state) => const Scaffold(
-      body: Center(
-        child: Text('Страница не найдена'),
-      ),
-    ),
+    errorBuilder: (context, state) =>
+        const Scaffold(body: Center(child: Text('Страница не найдена'))),
   );
 }

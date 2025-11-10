@@ -60,7 +60,7 @@ class _TranslationScreenState extends State<TranslationScreen> {
               ],
             ),
           ),
-          
+
           // Основной контент
           Expanded(
             child: Padding(
@@ -81,14 +81,18 @@ class _TranslationScreenState extends State<TranslationScreen> {
                             child: Container(
                               padding: const EdgeInsets.symmetric(vertical: 16),
                               decoration: BoxDecoration(
-                                color: _isSignToText ? AppColors.primaryTeal : Colors.transparent,
+                                color: _isSignToText
+                                    ? AppColors.primaryTeal
+                                    : Colors.transparent,
                                 borderRadius: BorderRadius.circular(12),
                               ),
                               child: Text(
                                 'Sign to text',
                                 textAlign: TextAlign.center,
                                 style: AppTextStyles.buttonMedium.copyWith(
-                                  color: _isSignToText ? AppColors.lightText : AppColors.primaryText,
+                                  color: _isSignToText
+                                      ? AppColors.lightText
+                                      : AppColors.primaryText,
                                 ),
                               ),
                             ),
@@ -100,14 +104,18 @@ class _TranslationScreenState extends State<TranslationScreen> {
                             child: Container(
                               padding: const EdgeInsets.symmetric(vertical: 16),
                               decoration: BoxDecoration(
-                                color: !_isSignToText ? AppColors.primaryTeal : Colors.transparent,
+                                color: !_isSignToText
+                                    ? AppColors.primaryTeal
+                                    : Colors.transparent,
                                 borderRadius: BorderRadius.circular(12),
                               ),
                               child: Text(
                                 'Text to sign',
                                 textAlign: TextAlign.center,
                                 style: AppTextStyles.buttonMedium.copyWith(
-                                  color: !_isSignToText ? AppColors.lightText : AppColors.primaryText,
+                                  color: !_isSignToText
+                                      ? AppColors.lightText
+                                      : AppColors.primaryText,
                                 ),
                               ),
                             ),
@@ -116,9 +124,9 @@ class _TranslationScreenState extends State<TranslationScreen> {
                       ],
                     ),
                   ),
-                  
+
                   const SizedBox(height: 30),
-                  
+
                   // Область для ввода/отображения
                   if (_isSignToText) ...[
                     // Sign to text - область для видео
@@ -163,9 +171,9 @@ class _TranslationScreenState extends State<TranslationScreen> {
                       ),
                     ),
                   ],
-                  
+
                   const SizedBox(height: 20),
-                  
+
                   // Область для результата
                   Container(
                     width: double.infinity,
@@ -196,9 +204,9 @@ class _TranslationScreenState extends State<TranslationScreen> {
                       ),
                     ),
                   ),
-                  
+
                   const SizedBox(height: 30),
-                  
+
                   // Кнопки управления
                   Row(
                     children: [
@@ -288,9 +296,7 @@ class _TranslationScreenState extends State<TranslationScreen> {
       bottomNavigationBar: Container(
         decoration: BoxDecoration(
           color: AppColors.lightBackground,
-          border: Border(
-            top: BorderSide(color: AppColors.inputBorder),
-          ),
+          border: Border(top: BorderSide(color: AppColors.inputBorder)),
         ),
         child: BottomNavigationBar(
           type: BottomNavigationBarType.fixed,
@@ -318,10 +324,7 @@ class _TranslationScreenState extends State<TranslationScreen> {
             }
           },
           items: const [
-            BottomNavigationBarItem(
-              icon: Icon(Icons.home),
-              label: 'Home',
-            ),
+            BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
             BottomNavigationBarItem(
               icon: Icon(Icons.translate),
               label: 'Translation',
@@ -330,14 +333,8 @@ class _TranslationScreenState extends State<TranslationScreen> {
               icon: Icon(Icons.book),
               label: 'Dictionary',
             ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.school),
-              label: 'Learn',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.person),
-              label: 'Profile',
-            ),
+            BottomNavigationBarItem(icon: Icon(Icons.school), label: 'Learn'),
+            BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
           ],
         ),
       ),

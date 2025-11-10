@@ -12,16 +12,9 @@ class DictionaryScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(
-              Icons.book,
-              size: 100,
-              color: AppColors.primaryTeal,
-            ),
+            Icon(Icons.book, size: 100, color: AppColors.primaryTeal),
             const SizedBox(height: 20),
-            Text(
-              'Dictionary Screen',
-              style: AppTextStyles.headerMedium,
-            ),
+            Text('Dictionary Screen', style: AppTextStyles.headerMedium),
             const SizedBox(height: 10),
             Text(
               'Экран будет реализован позже',
