@@ -3,11 +3,7 @@ import 'package:go_router/go_router.dart';
 import '../../features/auth/presentation/screens/welcome_screen.dart';
 import '../../features/auth/presentation/screens/sign_in_screen.dart';
 import '../../features/auth/presentation/screens/sign_up_screen.dart';
-import '../../features/home/presentation/screens/home_screen.dart';
-import '../../features/translation/presentation/screens/translation_screen.dart';
-import '../../features/dictionary/presentation/screens/dictionary_screen.dart';
-import '../../features/learn/presentation/screens/learn_screen.dart';
-import '../../features/quizzes/presentation/screens/quizzes_screen.dart';
+import '../../features/home/presentation/screens/main_screen.dart';
 
 class AppRouter {
   static const String welcome = '/welcome';
@@ -42,29 +38,20 @@ class AppRouter {
       GoRoute(
         path: home,
         name: 'home',
-        builder: (context, state) => const HomeScreen(),
-        routes: [
-          GoRoute(
-            path: 'translation',
-            name: 'translation',
-            builder: (context, state) => const TranslationScreen(),
-          ),
-          GoRoute(
-            path: 'dictionary',
-            name: 'dictionary',
-            builder: (context, state) => const DictionaryScreen(),
-          ),
-          GoRoute(
-            path: 'learn',
-            name: 'learn',
-            builder: (context, state) => const LearnScreen(),
-          ),
-          GoRoute(
-            path: 'quizzes',
-            name: 'quizzes',
-            builder: (context, state) => const QuizzesScreen(),
-          ),
-        ],
+        builder: (context, state) {
+          // Определяем начальный индекс на основе пути
+          int initialIndex = 0;
+          final path = state.uri.path;
+          if (path.contains('translation'))
+            initialIndex = 1;
+          else if (path.contains('dictionary'))
+            initialIndex = 2;
+          else if (path.contains('learn'))
+            initialIndex = 3;
+          else if (path.contains('quizzes'))
+            initialIndex = 4;
+          return MainScreen(initialIndex: initialIndex);
+        },
       ),
     ],
     errorBuilder: (context, state) =>
